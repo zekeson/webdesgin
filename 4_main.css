@@ -1,0 +1,408 @@
+body {
+    font-family: 'Source Serif 4', serif;
+    margin: 0;
+  }
+
+input[type="radio"] {
+    display: none;
+  }
+
+.top-logo {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+.top-logo img {
+    width: 400px;
+    cursor: pointer;
+  }
+
+  .menu {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #fff;
+    text-align: center;
+    padding: 20px 0 15px 0; /* 상하 넓게, 좌우 그대로 */
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+
+.menu label {
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    color: #aaa;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+
+#painting:checked ~ .menu label[for="painting"],
+#sculpture:checked ~ .menu label[for="sculpture"],
+#mediaart:checked ~ .menu label[for="mediaart"],
+#college:checked ~ .menu label[for="college"]  {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+
+.section {
+    display: none;
+    padding: 10px;
+    text-align: center;
+    min-height: 300px;
+  }
+
+#painting:checked ~ .content #paintingSection,
+#sculpture:checked ~ .content #sculptureSection,
+#mediaart:checked ~ .content #mediaartSection,
+#college:checked ~ .content #collegeSection {
+    display: block;
+  }
+
+  .main-image-slider {
+    position: relative;
+    width: 100%;
+    height: 650px; /* 적당히 조절 가능 */
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .slider-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  
+  .slider-img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.12); /* 살짝 더 진하게 */
+    margin: 80px auto 40px auto;           /* 슬라이더와의 간격을 약간 조절 */
+    width: 90%;                            /* 슬라이더보다 약간 작게 */
+  }
+  
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 1550;
+  margin: 0 auto;
+  padding: 40px;
+  justify-items: center;
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+.art-box {
+  position: relative;
+  width: 490px;
+  height: 620px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.art-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* 어두워지는 레이어 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.art-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.art-caption span.title {
+  font-size: 34px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.art-caption span.artist {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.art-caption span.category {
+  font-size: 24px;
+  display: block;
+}
+
+.art-box:hover::before {
+  opacity: 1;
+}
+
+.art-box:hover .art-caption {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+.art-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.college-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.college-list {
+  width: 200px;
+}
+
+.college-item {
+  display: block;
+  margin: 40px 0;
+  color: #bbb;
+  font-weight: 500;
+  font-size: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 800px;
+  height: 600px;
+}
+
+.map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.map-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+/* 대학 위치 표시하는 건데 */
+.map-icon.uni1 { top: 79%; left: 49%; }
+.map-icon.uni2 { top: 65%; left: 47%; }
+.map-icon.uni3 { top: 77%; left: 47%; }
+.map-icon.uni4 { top: 81%; left: 47.5%; }
+.map-icon.uni5 { top: 77%; left: 41%; }
+.map-icon.uni6 { top: 82%; left: 38%; }
+.map-icon.uni7 { top: 79%; left: 43%; }
+.map-icon.uni8 { top: 73%; left: 39%; }
+.map-icon.uni9 { top: 70%; left: 53%; }
+.map-icon.uni10 { top: 28%; left: 60%; }
+/* 몬하게따 */
+
+#uni1:checked ~ .college-container .college-item[for="uni1"],
+#uni2:checked ~ .college-container .college-item[for="uni2"],
+#uni3:checked ~ .college-container .college-item[for="uni3"],
+#uni4:checked ~ .college-container .college-item[for="uni4"],
+#uni5:checked ~ .college-container .college-item[for="uni5"],
+#uni6:checked ~ .college-container .college-item[for="uni6"],
+#uni7:checked ~ .college-container .college-item[for="uni7"],
+#uni8:checked ~ .college-container .college-item[for="uni8"],
+#uni9:checked ~ .college-container .college-item[for="uni9"],
+#uni10:checked ~ .college-container .college-item[for="uni10"] {
+  color: #000;
+  font-weight: 700;
+}
+
+#uni1:checked ~ .college-container .map-icon.uni1,
+#uni2:checked ~ .college-container .map-icon.uni2,
+#uni3:checked ~ .college-container .map-icon.uni3,
+#uni4:checked ~ .college-container .map-icon.uni4,
+#uni5:checked ~ .college-container .map-icon.uni5,
+#uni6:checked ~ .college-container .map-icon.uni6,
+#uni7:checked ~ .college-container .map-icon.uni7,
+#uni8:checked ~ .college-container .map-icon.uni8,
+#uni9:checked ~ .college-container .map-icon.uni9,
+#uni10:checked ~ .college-container .map-icon.uni10 {
+  background-color: #000;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.college-info {
+  margin-top: 60px;
+  padding: 40px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.uni-content {
+  display: none;
+}
+
+/* 선택된 대학만 표시 */
+#uni1:checked ~ .college-info .uni1,
+#uni2:checked ~ .college-info .uni2,
+#uni3:checked ~ .college-info .uni3,
+#uni4:checked ~ .college-info .uni4,
+#uni5:checked ~ .college-info .uni5,
+#uni6:checked ~ .college-info .uni6,
+#uni7:checked ~ .college-info .uni7,
+#uni8:checked ~ .college-info .uni8,
+#uni9:checked ~ .college-info .uni9,
+#uni10:checked ~ .college-info .uni10 {
+  display: block;
+}
+
+.univ-title {
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.univ-img {
+  display: block;
+  margin: 0 auto;
+  width: 830px;
+  height: 600px; /* 원하는 고정 높이 지정 */
+}
+
+/*대학내용*/
+.univ-desc {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.major-info {
+  margin-top: 50px;
+}
+
+.major-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.major-info p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.uni-content {
+  text-align: left;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+
+
+/* 인트로 화면 스타일 */
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 어두운 오버레이 */
+.intro-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* 타이틀 텍스트 */
+.intro-title {
+  color: white;
+  font-size: 6rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* 페이드아웃 효과 */
+.intro-screen.fade-out,
+.intro-overlay.fade-out {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+
+/* 메인 콘텐츠는 기본적으로 보이게 설정 */
+.main-content {
+  display: block;
+  padding: 2rem;
+}
+
+/* 배경 전환용 백그라운드 레이어 */
+.intro-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* 검정 배경 레이어 - 맨 아래에 고정 */
+.intro-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  z-index: -2;
+}

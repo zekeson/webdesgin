@@ -1,0 +1,281 @@
+<!-- 💡 변경된 부분은 주석으로 표시 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Space X</title>
+  <link rel="stylesheet" href="4_main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Source Serif 4', serif;
+      margin: 0;
+      padding: 160px 0 0 0;
+    }
+
+    .top-logo {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      margin: 10p3x;
+    }
+
+    .top-logo img {
+      width: 400px;
+      cursor: pointer;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      font-size: 28px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      z-index: 100;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: white;
+      margin: 10px 0;
+      padding: 10px 0;
+    }
+
+    .menu-container input[type="radio"] {
+      display: none;
+    }
+
+    .menu-container label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #aaa;
+      text-decoration: none;
+      padding-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .menu-container input[type="radio"]:checked + label {
+      color: black;
+      border-bottom: 2px solid black;
+    }
+
+    .detail-container,
+    .video-section,
+    .artist-photo-section {
+      display: flex;
+      align-items: stretch;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 80px;
+      padding: 40px 40px 40px 80px;
+      transform: translateX(10px);
+      background-color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .art-image, .video-block {
+      width: 490px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .art-image img,
+    .video-block video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caption, .video-caption, .artist-info-block {
+      max-width: 800px;
+    }
+
+    .caption h1,
+    .video-caption h2 {
+      font-size: 44px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .caption p,
+    .video-caption p {
+      font-size: 24px;
+      margin: 12px 0;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .description {
+      margin-top: 40px;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 80px auto;
+      width: 80%;
+    }
+
+.artist-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.artist-photo-section img:first-child {
+  width: 260px;
+  height: 460px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+.artist-thumbnail-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  height: 320px; /* ✅ 메인 이미지와 동일하게 맞춤 */
+  align-items: flex-end;
+}
+
+.artist-thumbnail-row video {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  flex: 1 1 0;
+  display: block;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- 로고 및 뒤로가기 버튼 -->
+  <div class="top-logo">
+    <a href="../index.html">
+      <img src="../img/logo3.png" alt="ArtHarbor 로고">
+    </a>
+  </div>
+  <a href="javascript:history.back();" class="back-button">←</a>
+
+  <!-- 라디오 메뉴 -->
+  <div class="menu-container">
+    <input type="radio" id="tab1" name="tab">
+    <label for="tab1">Painting</label>
+
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">Sculpture</label>
+
+    <input type="radio" id="tab3" name="tab" checked>
+    <label for="tab3">Media Art</label>
+
+    <input type="radio" id="tab4" name="tab">
+    <label for="tab4">College</label>
+  </div>
+
+  <!-- 작품 상세 -->
+  <div class="detail-container">
+    <div class="art-image">
+      <img src="../art/3mediaart/3/main3.JPG" alt="PIVOTALL">
+    </div>
+    <div class="caption">
+      <h1>PIVOTALL</h1>
+      <p>유재헌</p>
+      <p>Media Art</p>
+      <p>Created with Touchdesigner</p>
+      <p>2025</p>
+      <div class="description">
+        <p>
+          <br>
+          "분열된 시선, 겹쳐지는 시간"<br><br>
+          다채로운 영상 조각이 반복 재생되며<br>일상의 기억을 분해하고 재조립한다.<br><br>
+          이 미디어 아트는 시청각의 파편 속에서 <br>현재와 과거,<br>실제와 허구가 교차하는 순간을 만들어낸다.<br><br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 제작과정 섹션 -->
+  <div class="video-section">
+    <div class="video-block">
+      <video id="artVideo" controls>
+        <source src="../art/3mediaart/3/mainvideo3.mp4" type="video/mp4">
+        브라우저가 video 태그를 지원하지 않습니다.
+      </video>
+    </div>
+    <div class="video-caption">
+      <h2>영상</h2>
+      <p>
+        <br>
+        이 작품은 거대한 멀티스크린 설치로 구성되어 있으며,<br>
+        수십 개의 디지털 이미지 조각이 서로 다른 시간과 공간의 조각을 비동기적으로 재생한다.<br>
+        영상은 흑백과 컬러, 사실과 추상을 교차시키며 기억의 불완전성과 왜곡을 시각화한다.<br><br>
+        관람자는 한 자리에 서 있더라도 끊임없이 변화하는 이미지와 사운드를 마주하게 되며,<br>
+        개인적 체험과 사회적 기억의 경계가 모호해지는 감각을 체험하게 된다.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 작가 소개 -->
+  <div class="artist-photo-section">
+    <img src="../art/3mediaart/3/artist.jpg" alt="작가 증명사진">
+    <div class="artist-info-block">
+      <div class="artist-name">유재헌</div>
+      <p>2015 ~</p>
+      <p>
+        <a href="https://www.instagram.com/you_jaehun_youjam?utm_source=ig_web_button_share_sheet&igsh=anZlM2RjcXkxbjh5" target="_blank">
+          @you_jaehun_youjam
+        </a>
+      </p>
+      <div class="artist-thumbnail-row">
+        <video src="../art/3mediaart/3/1.mp4" controls muted></video>
+        <video src="../art/3mediaart/3/2.mp4" controls muted></video>
+        <video src="../art/3mediaart/3/3.mp4" controls muted></video>
+        <video src="../art/3mediaart/3/4.mp4" controls muted></video>
+      </div>      
+    </div>
+    
+
+  <!-- 라디오 탭 클릭 시 메인페이지 이동 -->
+  <script>
+document.getElementById("tab1").addEventListener("click", () => {
+  window.location.href = "../index.html#painting";
+});
+document.getElementById("tab2").addEventListener("click", () => {
+  window.location.href = "../index.html#sculpture";
+});
+document.getElementById("tab3").addEventListener("click", () => {
+  window.location.href = "../index.html#mediaart";
+});
+document.getElementById("tab4").addEventListener("click", () => {
+  window.location.href = "../index.html#college";
+});
+
+  </script>
+
+</body>
+</html>

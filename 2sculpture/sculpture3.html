@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled - Guido Geelen</title>
+  <link rel="stylesheet" href="4_main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Source Serif 4', serif;
+      margin: 0;
+      padding: 160px 0 0 0;
+    }
+
+    .top-logo {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      margin: 10px;
+    }
+
+    .top-logo img {
+      width: 400px;
+      cursor: pointer;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      font-size: 28px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      z-index: 100;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: white;
+      margin: 10px 0;
+      padding: 10px 0;
+    }
+
+    .menu-container input[type="radio"] {
+      display: none;
+    }
+
+    .menu-container label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #aaa;
+      padding-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .menu-container input[type="radio"]:checked + label {
+      color: black;
+      border-bottom: 2px solid black;
+    }
+
+    .detail-container,
+    .video-section,
+    .artist-photo-section {
+      display: flex;
+      align-items: flex-start;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 60px;
+      padding: 40px 40px 40px 80px;
+      background-color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .art-image {
+      width: 460px;
+      height: 620px;
+      flex-shrink: 0;
+    }
+
+    .art-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-wrapper {
+      width: 490px;
+      height: 620px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .slide-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caption, .video-caption, .artist-info-block {
+      max-width: 800px;
+    }
+
+    .caption h1,
+    .video-caption h2 {
+      font-size: 44px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .caption p,
+    .video-caption p {
+      font-size: 24px;
+      margin: 12px 0;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .description {
+      margin-top: 40px;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 80px auto;
+      width: 80%;
+    }
+
+    .artist-name {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .artist-photo-section img:first-child {
+      width: 260px;
+      height: 420px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .artist-info-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex: 1;
+    }
+
+    .artist-info-block p {
+      font-size: 22px;
+      margin: 0 0 20px 0;
+    }
+
+    .artist-meta {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .artist-thumbnail-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+
+    .thumbnail-wrapper {
+      aspect-ratio: 4 / 5;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumbnail-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-logo">
+    <a href="../index.html">
+      <img src="../img/logo3.png" alt="ArtHarbor 로고">
+    </a>
+  </div>
+  <a href="javascript:history.back();" class="back-button">←</a>
+
+  <div class="menu-container">
+    <input type="radio" id="tab1" name="tab">
+    <label for="tab1">Painting</label>
+    <input type="radio" id="tab2" name="tab" checked>
+    <label for="tab2">Sculpture</label>
+    <input type="radio" id="tab3" name="tab">
+    <label for="tab3">Media Art</label>
+    <input type="radio" id="tab4" name="tab">
+    <label for="tab4">College</label>
+  </div>
+
+  <div class="detail-container">
+    <div class="art-image">
+      <img src="../art/2sculpture/3/guido geelen.jpg" alt="무제 (Untitled)">
+    </div>
+    <div class="caption">
+      <h1>Untitled</h1>
+      <p>Guido Geelen</p>
+      <p>조각 (sculpture)</p>
+      <p>Stoneware</p>
+      <p>1989</p>
+      <div class="description">
+        <p>
+          점토 속에 누른 신발과 기계 부품, 일상의 파포드드는 사업적 리드민처럼 반복된다. <br>
+          진석과 호덕, 유기과 기계 사이에서 작가는 물성과 기억의 충돌을 비어낸다. <br>
+          도자라는 재료가 가지는 전트성과, 그 파귀적 재조합 사이에서 질문이 솏니다.<br>
+          '우리는 무엇을 남기고, 무엇을 무려보내는가?'
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="video-section">
+    <div class="slide-wrapper">
+      <!-- 상세 이미지 하나만 들어가도 되면 되는 곳 -->
+      <img src="../art/2sculpture/3/make.jpg" alt="상세 이미지">
+    </div>
+    <div class="video-caption">
+      <h2>상세 이미지</h2>
+      <p>
+        이 작품은 사업적 오브제를 누르러 집은 드 트한 점토 조각들을 반복적으로 쌓아올려 구성한 설치 조각이다. <br>
+        규칙적인 구조 속에 왜곡된 형태들이 공존하며, 진석와 호덕의 긴장을 드린다. 운동화,<br>
+        기계 부품 등의 흐적은 사물과 기억의 잔재를 담고 있으며, 재료의 물성은 수공과 기계적 감각을 동시에 내펴한다. <br>
+        반복되는 모듈은 조각과 건축의 경계를 넘른며 공간 전체를 조형한다.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="artist-photo-section">
+    <img src="../art/2sculpture/3/artist.jpg" alt="작가 증명사진">
+    <div class="artist-info-block">
+      <div class="artist-name">Guido Geelen</div>
+      <div class="artist-meta">
+        <p>2019 ~</p>
+        <p><a href="https://www.instagram.com/guidogeelenart?utm_source=ig_web_button_share_sheet&igsh=cnMydXhjMmpoaDk1" target="_blank">@guidogeelenart</a></p>
+      </div>
+      <div class="artist-thumbnail-row">
+        <div class="thumbnail-wrapper">
+          <img src="../art/2sculpture/3/1.jpg" alt="작품 쎘막일1">
+        </div>
+        <div class="thumbnail-wrapper">
+          <img src="../art/2sculpture/3/2.jpg" alt="작품 쎘막일2">
+        </div>
+        <div class="thumbnail-wrapper">
+          <img src="../art/2sculpture/3/3.jpg" alt="작품 쎘막일3">
+        </div>
+        <div class="thumbnail-wrapper">
+          <img src="../art/2sculpture/3/4.jpg" alt="작품 쎘막일4">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("tab1").addEventListener("click", () => {
+      window.location.href = "../index.html#painting";
+    });
+    document.getElementById("tab2").addEventListener("click", () => {
+      window.location.href = "../index.html#sculpture";
+    });
+    document.getElementById("tab3").addEventListener("click", () => {
+      window.location.href = "../index.html#mediaart";
+    });
+    document.getElementById("tab4").addEventListener("click", () => {
+      window.location.href = "../index.html#college";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>The Frozen Waves Never Let Go - Mifuu Oda</title>
+  <link rel="stylesheet" href="4_main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Source Serif 4', serif;
+      margin: 0;
+      padding: 160px 0 0 0;
+    }
+
+    .top-logo {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      margin: 10px;
+    }
+
+    .top-logo img {
+      width: 400px;
+      cursor: pointer;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      font-size: 28px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      z-index: 100;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: white;
+      margin: 10px 0;
+      padding: 10px 0;
+    }
+
+    .menu-container input[type="radio"] {
+      display: none;
+    }
+
+    .menu-container label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #aaa;
+      text-decoration: none;
+      padding-bottom: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .menu-container input[type="radio"]:checked + label {
+      color: black;
+      border-bottom: 2px solid black;
+    }
+
+    .detail-container,
+    .video-section,
+    .artist-photo-section {
+      display: flex;
+      align-items: flex-start;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 80px;
+      padding: 40px 40px 40px 80px;
+      background-color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .art-image {
+      width: 540px;
+      height: 450px;
+      flex-shrink: 0;
+    }
+
+    .art-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-block {
+      width: 830px;
+      height: 620px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f6f6f6;
+    }
+
+    .slide-wrapper {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      animation: slideAnimation 12s infinite;
+    }
+
+    .slide-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    @keyframes slideAnimation {
+      0%, 20%   { transform: translateX(0%); }
+      25%, 45%  { transform: translateX(-100%); }
+      50%, 70%  { transform: translateX(-200%); }
+      75%, 95%  { transform: translateX(-300%); }
+      100%      { transform: translateX(0%); }
+    }
+
+    .caption, .video-caption, .artist-info-block {
+      max-width: 800px;
+    }
+
+    .caption h1,
+    .video-caption h2 {
+      font-size: 44px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .caption p,
+    .video-caption p {
+      font-size: 24px;
+      margin: 12px 0;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .description {
+      margin-top: 40px;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 80px auto;
+      width: 80%;
+    }
+
+    .artist-name {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .artist-photo-section img:first-child {
+      width: 260px;
+      height: 420px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .artist-info-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex: 1;
+    }
+
+    .artist-info-block p {
+      font-size: 22px;
+      margin: 0 0 20px 0;
+    }
+
+    .artist-thumbnail-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    .thumbnail-wrapper {
+      aspect-ratio: 4 / 5;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumbnail-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-logo">
+    <a href="../index.html">
+      <img src="../img/logo3.png" alt="ArtHarbor 로고">
+    </a>
+  </div>
+  <a href="javascript:history.back();" class="back-button">←</a>
+
+  <div class="menu-container">
+    <input type="radio" id="tab1" name="tab" checked>
+    <label for="tab1">Painting</label>
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">Sculpture</label>
+    <input type="radio" id="tab3" name="tab">
+    <label for="tab3">Media Art</label>
+    <input type="radio" id="tab4" name="tab">
+    <label for="tab4">College</label>
+  </div>
+
+  <div class="detail-container">
+    <div class="art-image">
+      <img src="../art/1painting/5/thefrozenwaves.jpg" alt="The Frozen">
+    </div>
+    <div class="caption">
+      <h1>The Frozen Waves Never Let Go</h1>
+      <p>Mifuu Oda</p>
+      <p>회화 (Painting)</p>
+      <p>33 × 24 cm</p>
+      <p>Acrylic paint on canvas</p>
+      <p>2024</p>
+      <div class="description">
+        <p>Shirokane CHristmas 출품작</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="video-section">
+    <div class="video-block">
+      <div class="slide-wrapper">
+        <img src="../art/1painting/5/detail.jpg" alt="슬라이드1">
+        <img src="../art/1painting/5/detail 2.jpg" alt="슬라이드2">
+        <img src="../art/1painting/5/detail 3.jpg" alt="슬라이드3">
+      </div>
+    </div>
+    <div class="video-caption">
+      <h2>상세 이미지</h2>
+      <p>
+        파도처럼 몰아치는 붓터치 속에 드러나는 얼굴은<br><br>
+        소용돌이치는 감정과 눈보라 속에서도 잊지 않아야할 순수한 자아를 상징합니다.<br><br>
+        차가운 푸른색과 눈과 같이 흩날리는 백색, 희미한 별빛은 겨울의 감정을 환상적으로 묘사합니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="artist-photo-section">
+    <img src="../art/1painting/5/artist.png" alt="작가 증명사진">
+    <div class="artist-info-block">
+      <div class="artist-name">Mifuu Oda</div>
+      <p>2018 ~</p>
+      <p><a href="https://www.instagram.com/kamisukimifu?utm_source=ig_web_button_share_sheet&igsh=MWdwOTRoaHA1OWEyMQ==" target="_blank">@Kamisukimifu</a></p>
+      <div class="artist-thumbnail-row">
+        <div class="thumbnail-wrapper"><img src="../art/1painting/5/1.jpg" alt="썸네일1"></div>
+        <div class="thumbnail-wrapper"><img src="../art/1painting/5/2.jpg" alt="썸네일2"></div>
+        <div class="thumbnail-wrapper"><img src="../art/1painting/5/3.jpg" alt="썸네일3"></div>
+        <div class="thumbnail-wrapper"><img src="../art/1painting/5/4.jpg" alt="썸네일4"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("tab1").addEventListener("click", () => {
+      window.location.href = "../index.html#painting";
+    });
+    document.getElementById("tab2").addEventListener("click", () => {
+      window.location.href = "../index.html#sculpture";
+    });
+    document.getElementById("tab3").addEventListener("click", () => {
+      window.location.href = "../index.html#mediaart";
+    });
+    document.getElementById("tab4").addEventListener("click", () => {
+      window.location.href = "../index.html#college";
+    });
+  </script>
+</body>
+</html>
